@@ -1,0 +1,17 @@
+{
+  "name": "nx7crm9-61gnt5f",
+  "hash": "P520FsUv/+CXnEO7iJpCS47blRtDCfxnRJH51RrYRag=",
+  "description": "Image Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/home/m_coder/development/Rocketseat/code-drops/nextserverless/.serverless_nextjs/image-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs12.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::219751275930:role/nx7crm9-059v6x"
+  },
+  "arn": "arn:aws:lambda:us-east-1:219751275930:function:nx7crm9-61gnt5f",
+  "region": "us-east-1"
+}

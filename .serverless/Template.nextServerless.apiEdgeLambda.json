@@ -1,0 +1,17 @@
+{
+  "name": "nx7crm9-rfgajp",
+  "hash": "SvxR0G3uW8S1o+6QVTx6phRmFf4jmBRk0K/CEFDJlss=",
+  "description": "API Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/home/m_coder/development/Rocketseat/code-drops/nextserverless/.serverless_nextjs/api-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs12.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::219751275930:role/nx7crm9-24hk5ej"
+  },
+  "arn": "arn:aws:lambda:us-east-1:219751275930:function:nx7crm9-rfgajp",
+  "region": "us-east-1"
+}

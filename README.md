@@ -1,34 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Como Fazer Deploy de um projeto Next na AWS/Vercel
 
-## Getting Started
+Insira o seguinte código abaixo:
+```js 
+import { NextApiRequest, NextApiResponse } from 'next';
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json({ name: 'John Doe' })
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Serverless
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Instale a biblioteca pelo guia: https://www.serverless.com/framework/docs/getting-started/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Com o comando abaixo:
+```bash
+npm install -g serverless
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Depois crie uma conta na AWS com o plano básico e vá em credentials e crie uma key e uma secret, após isso
+vá até o guia de referência https://www.serverless.com/framework/docs/providers/aws/cli-reference/config-credentials/
 
-## Learn More
+Rode o comando:
+```bash
+serverless config credentials --provider provider --key key --secret secret
+```
 
-To learn more about Next.js, take a look at the following resources:
+Substitua o provider pelo 'aws', e tanto o key quanto o secret pelas credentials obtidas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Serverless Plugin Nextjs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Crie o arquivo serverless.yml na raiz do projeto, e siga as instruções do guia https://www.serverless.com/plugins/serverless-nextjs-plugin
 
-## Deploy on Vercel
+Depois insira o seguinte código no arquivo criado:
+```yml
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+myNextApplication:
+  component: "@sls-next/serverless-component"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploy
+
+Por fim, para realizar o deploy na AWS, basta rodar o comando:
+```bash
+serverless
+```
+
+## Vercel
+Para realizar a configuração com o ambiente da Vercel, basta instalar a CLI da Vercel com:
+```bash
+npm i -g vercel
+```
+
+rodar este seguinte comando no projeto para realizar as configurações com a plataforma:
+```bash
+vercel
+```
+
+e por fim para colocar em ambiente de desenvolvimento basta rodar:
+```bash
+vercel --prod
+```
