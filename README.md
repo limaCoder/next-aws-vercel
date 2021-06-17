@@ -1,6 +1,6 @@
 # Como Fazer Deploy de um projeto Next na AWS/Vercel
 
-Insira o seguinte código abaixo:
+Insira o seguinte código abaixo na pasta api em pages:
 ```js 
 import { NextApiRequest, NextApiResponse } from 'next';
 
